@@ -40,7 +40,7 @@ Welcome to the Node.js homeworks repository! This project contains all assignmen
 
 | **Details**     | **Description**                                                 |
 | --------------- | --------------------------------------------------------------- |
-| **Branch**      | [hw3-crud] (https://github.com/Svitla-Dan/nodejs-hw-mongodb/tree/hw3-crud)            |
+| **Branch**      | [hw3-crud](https://github.com/Svitla-Dan/nodejs-hw-mongodb/tree/hw3-crud)            |
 | **Description** | Structuring REST APIs with CRUD functionality using Express.js. |
 | **Deployed**    | [svitla-dan-contacts.onrender.com](https://svitla-dan-contacts.onrender.com)          |
 
