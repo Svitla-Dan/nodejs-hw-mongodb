@@ -38,11 +38,11 @@ Welcome to the Node.js homeworks repository! This project contains all assignmen
 
 ### 🔧 **Homework 3: REST API Organization**
 
-| **Details**     | **Description**                                                 |
-| --------------- | --------------------------------------------------------------- |
-| **Branch**      | [hw3-crud](https://github.com/Svitla-Dan/nodejs-hw-mongodb/tree/hw3-crud)            |
-| **Description** | Structuring REST APIs with CRUD functionality using Express.js. |
-| **Deployed**    | [svitla-dan-contacts.onrender.com](https://svitla-dan-contacts.onrender.com)          |
+| **Details**     | **Description**                                                              |
+| --------------- | ---------------------------------------------------------------------------- |
+| **Branch**      | [hw3-crud](https://github.com/Svitla-Dan/nodejs-hw-mongodb/tree/hw3-crud)    |
+| **Description** | Structuring REST APIs with CRUD functionality using Express.js.              |
+| **Deployed**    | [svitla-dan-contacts.onrender.com](https://svitla-dan-contacts.onrender.com) |
 
 ---
 
@@ -50,9 +50,9 @@ Welcome to the Node.js homeworks repository! This project contains all assignmen
 
 | **Details**     | **Description**                                                                        |
 | --------------- | -------------------------------------------------------------------------------------- |
-| **Branch**      | hw4-validation (in development)                                                        |
+| **Branch**      | [hw4-validation](https://github.com/Svitla-Dan/nodejs-hw-mongodb/tree/hw4-validation)  |
 | **Description** | Using libraries like joi for data validation and implementing custom validation logic. |
-| **Deployed**    |                                                                                        |
+| **Deployed**    | [svitla-dan-contacts.onrender.com](https://svitla-dan-contacts.onrender.com)           |
 
 ---
 
