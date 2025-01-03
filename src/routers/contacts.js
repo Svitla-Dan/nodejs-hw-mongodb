@@ -10,32 +10,43 @@ import {
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import { validateBody } from '../middlewares/validateBody.js';
 import { isValidId } from '../middlewares/isValidId.js';
+import { authenticate } from '../middlewares/authenticate.js';
 import {
   createContactSchema,
   updateContactSchema,
 } from '../validation/contacts.js';
 
-const router = Router();
+const contactsRouter = Router();
 
-router.get('/', ctrlWrapper(getContactsController));
-router.get('/:contactId', isValidId, ctrlWrapper(getContactByIdController));
-router.post(
+contactsRouter.use(authenticate);
+
+contactsRouter.get('/', ctrlWrapper(getContactsController));
+contactsRouter.get(
+  '/:contactId',
+  isValidId,
+  ctrlWrapper(getContactByIdController),
+);
+contactsRouter.post(
   '/',
   validateBody(createContactSchema),
   ctrlWrapper(createContactController),
 );
-router.put(
+contactsRouter.put(
   '/:contactId',
   isValidId,
   validateBody(createContactSchema),
   ctrlWrapper(upsertContactController),
 );
-router.patch(
+contactsRouter.patch(
   '/:contactId',
   isValidId,
   validateBody(updateContactSchema),
   ctrlWrapper(updateContactController),
 );
-router.delete('/:contactId', isValidId, ctrlWrapper(deleteContactController));
+contactsRouter.delete(
+  '/:contactId',
+  isValidId,
+  ctrlWrapper(deleteContactController),
+);
 
-export default router;
+export default contactsRouter;

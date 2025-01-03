@@ -58,11 +58,11 @@ Welcome to the Node.js homeworks repository! This project contains all assignmen
 
 ### 🔑 **Homework 5: Authentication**
 
-| **Details**     | **Description**                                          |
-| --------------- | -------------------------------------------------------- |
-| **Branch**      | hw5-auth (in development)                                |
-| **Description** | Adding JWT authentication and securing routes for users. |
-| **Deployed**    |                                                          |
+| **Details**     | **Description**                                                              |
+| --------------- | ---------------------------------------------------------------------------- |
+| **Branch**      | [hw5-auth](https://github.com/Svitla-Dan/nodejs-hw-mongodb/tree/hw5-auth)    |
+| **Description** | Adding JWT authentication and securing routes for users.                     |
+| **Deployed**    | [svitla-dan-contacts.onrender.com](https://svitla-dan-contacts.onrender.com) |
 
 ---
 
