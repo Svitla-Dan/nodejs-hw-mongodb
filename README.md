@@ -68,11 +68,11 @@ Welcome to the Node.js homeworks repository! This project contains all assignmen
 
 ### 📧 **Homework 6: Email and Image Uploads**
 
-| **Details**     | **Description**                                                                                    |
-| --------------- | -------------------------------------------------------------------------------------------------- |
-| **Branch**      | [hw6-email-and-images] (https://github.com/Svitla-Dan/nodejs-hw-mongodb/tree/hw6-email-and-images) |
-| **Description** | Handling email services with nodemailer and uploading images to cloud storage.                     |
-| **Deployed**    | [svitla-dan-contacts.onrender.com](https://svitla-dan-contacts.onrender.com)                       |
+| **Details**     | **Description**                                                                                   |
+| --------------- | ------------------------------------------------------------------------------------------------- |
+| **Branch**      | [hw6-email-and-images](https://github.com/Svitla-Dan/nodejs-hw-mongodb/tree/hw6-email-and-images) |
+| **Description** | Handling email services with nodemailer and uploading images to cloud storage.                    |
+| **Deployed**    | [svitla-dan-contacts.onrender.com](https://svitla-dan-contacts.onrender.com)                      |
 
 ---
 
