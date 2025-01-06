@@ -4,6 +4,7 @@ import { parsePaginationParams } from '../utils/parsePaginationParams.js';
 import { parseSortParams } from '../utils/parseSortParams.js';
 import { parseContactFilterParams } from '../utils/parseContactFilterParams.js';
 import { sortByList } from '../db/models/contacts.js';
+import { saveFileToCloudinary } from '../utils/saveFileToCloudinary.js';
 
 export const getContactsController = async (req, res, next) => {
   try {
@@ -50,8 +51,14 @@ export const getContactByIdController = async (req, res, next) => {
 
 export const createContactController = async (req, res, next) => {
   try {
+      const photo = req.file;
+      let photoUrl;
+      if (photo) {
+        photoUrl = await saveFileToCloudinary(photo);
+      }
     const contact = await contactServices.createContact({
       ...req.body,
+      photo: photoUrl,
       userId: req.user._id,
     });
     res.status(201).json({
@@ -67,9 +74,17 @@ export const createContactController = async (req, res, next) => {
 export const updateContactController = async (req, res, next) => {
   try {
     const { contactId } = req.params;
+    const photo = req.file;
+    let photoUrl;
+    if (photo) {
+      photoUrl = await saveFileToCloudinary(photo);
+    }
     const result = await contactServices.updateContact(
       { _id: contactId, userId: req.user._id },
-      req.body,
+      {
+        ...req.body,
+        photo: photoUrl,
+      },
     );
     if (!result) {
       throw createHttpError(404, `Contact with id ${contactId} was not found`);
@@ -87,11 +102,23 @@ export const updateContactController = async (req, res, next) => {
 export const upsertContactController = async (req, res, next) => {
   try {
     const { contactId } = req.params;
+    const photo = req.file;
+    let photoUrl;
+    if (photo) {
+      photoUrl = await saveFileToCloudinary(photo);
+    }
     const result = await contactServices.updateContact(
       { _id: contactId, userId: req.user._id },
-      req.body,
+      {
+        ...req.body,
+        photo: photoUrl,
+      },
       { upsert: true },
     );
+    if (!result) {
+      next(createHttpError(404, `Contact with id ${contactId} was not found`));
+      return;
+    }
     const status = result.isNew ? 201 : 200;
     res.status(status).json({
       status,
