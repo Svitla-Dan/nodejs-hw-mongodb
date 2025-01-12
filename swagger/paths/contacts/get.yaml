@@ -1,0 +1,105 @@
+tags:
+  - Contacts
+summary: Get list of contacts
+operationId: getContacts
+description: 'Retrieve a paginated list of user contacts with optional filters and sorting.'
+security:
+  - bearerAuth: []
+parameters:
+  - in: query
+    name: page
+    schema:
+      type: integer
+      example: 1
+      default: 1
+    description: 'Page number for pagination.'
+  - in: query
+    name: perPage
+    schema:
+      type: integer
+      example: 10
+      default: 10
+    description: 'Number of contacts to display per page.'
+  - in: query
+    name: sortBy
+    schema:
+      type: string
+      enum: ['name', 'phoneNumber', 'email' ]
+      example: 'name'
+      default: '_id'
+    description: 'Field by which to sort the contacts. Options include "name", "phoneNumber" or "email".'
+  - in: query
+    name: sortOrder
+    schema:
+      type: string
+      enum: ['asc', 'desc']
+      example: 'asc'
+      default: 'asc'
+    description: 'Sort order for the contacts. Use "asc" for ascending or "desc" for descending.'
+  - in: query
+    name: isFavourite
+    schema:
+      type: boolean
+      example: true
+      default: false
+    description: 'Filter contacts based on whether they are marked as favourites.'
+  - in: query
+    name: contactType
+    schema:
+      type: string
+      enum: ['work', 'home', 'personal']
+      example: 'personal'
+    description: 'Filter contacts by type. Options are "work", "home" or "personal".'
+responses:
+  '200':
+    description: 'Successfully retrieved contacts.'
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: 'Successfully retrieved contacts.'
+            data:
+              type: object
+              required:
+                - data
+                - page
+                - perPage
+                - totalItems
+                - totalPages
+                - hasNextPage
+                - hasPreviousPage
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: '../../components/schemas/contact.yaml'
+                page:
+                  type: number
+                  example: 1
+                perPage:
+                  type: number
+                  example: 10
+                totalItems:
+                  type: number
+                  example: 24
+                totalPages:
+                  type: number
+                  example: 3
+                hasNextPage:
+                  type: boolean
+                  example: true
+                hasPreviousPage:
+                  type: boolean
+                  example: false
+  '401':
+    $ref: '../../components/responses/401.yaml'

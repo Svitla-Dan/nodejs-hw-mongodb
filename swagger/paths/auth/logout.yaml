@@ -1,0 +1,11 @@
+tags:
+  - Auth
+summary: Logout user
+operationId: logoutUser
+description: 'Log out an authenticated user by invalidating their session.'
+security: []
+responses:
+  '204':
+    description: Successfully logged out
+  '408':
+    description: Request timeout

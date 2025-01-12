@@ -7,6 +7,7 @@ import { env } from './utils/env.js';
 import { logger } from './middlewares/logger.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
+import { swaggerDocs } from './middlewares/swaggerDocs.js';
 
 const PORT = Number(env('PORT', 3000));
 
@@ -28,6 +29,7 @@ export const startServer = () => {
       });
     });
   app.use('/contacts', contactsRouter);
+  app.use('/api-docs', swaggerDocs());
   app.use('*', notFoundHandler);
   app.use(errorHandler);
 

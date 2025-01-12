@@ -1,0 +1,30 @@
+description: Bad Request
+content:
+  application/json:
+    schema:
+      type: object
+      required:
+        - status
+        - message
+        - errors
+      properties:
+        status:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: 'Invalid request payload or missing parameters'
+        errors:
+          type: object
+          required:
+            - field
+            - error
+          properties:
+            field:
+              type: string
+              example: 'refreshToken'
+              description: 'The name of the field that caused the error'
+            error:
+              type: string
+              example: 'This field is required'
+              description: 'The validation error message'

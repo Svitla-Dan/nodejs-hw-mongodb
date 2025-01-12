@@ -78,11 +78,11 @@ Welcome to the Node.js homeworks repository! This project contains all assignmen
 
 ### 📜 **Homework 7: Swagger API Documentation**
 
-| **Details**     | **Description**                                                |
-| --------------- | -------------------------------------------------------------- |
-| **Branch**      | hw7-swagger (in development)                                   |
-| **Description** | Creating API documentation with Swagger and OpenAPI standards. |
-| **Deployed**    |                                                                |
+| **Details**     | **Description**                                                                 |
+| --------------- | ------------------------------------------------------------------------------- |
+| **Branch**      | [hw7-swagger](https://github.com/Svitla-Dan/nodejs-hw-mongodb/tree/hw7-swagger) |
+| **Description** | Creating API documentation with Swagger and OpenAPI standards.                  |
+| **Deployed**    | [svitla-dan-contacts.onrender.com](https://svitla-dan-contacts.onrender.com)    |
 
 ---
 

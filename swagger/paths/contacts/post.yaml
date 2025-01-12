@@ -1,0 +1,86 @@
+tags:
+  - Contacts
+summary: Create a new contact
+operationId: createContact
+description: 'Create a new contact with the provided payload'
+security:
+  - bearerAuth: []
+requestBody:
+  required: true
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        required:
+          - name
+          - phoneNumber
+          - contactType
+        properties:
+          name:
+            description: 'The name of the contact'
+            type: string
+            example: 'John Doe'
+          phoneNumber:
+            description: 'The phone number of the contact'
+            type: string
+            example: '0-800-500-300'
+          email:
+            description: 'The email address of the contact (optional)'
+            type: string
+            format: email
+            example: 'john@example.com'
+          isFavourite:
+            description: 'Mark if the contact is a favourite'
+            type: boolean
+            example: false
+          contactType:
+            description: 'The type of the contact'
+            type: string
+            enum: ['work', 'home', 'personal']
+            example: 'personal'
+          photo:
+            description: 'An optional photo of the contact'
+            type: string
+            format: binary
+            example: 'https://example.com/photo.jpg'
+responses:
+  '201':
+    description: 'Contact successfully created'
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: 'Successfully created contact!'
+            data:
+              type: object
+              $ref: '../../components/schemas/contact.yaml'
+  '400':
+    description: 'Invalid request payload'
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+          properties:
+            status:
+              type: integer
+              example: 400
+            message:
+              type: string
+              example: 'Invalid request payload. Please check the provided data.'
+  '401':
+    $ref: '../../components/responses/401.yaml'
+  '500':
+    $ref: '../../components/responses/500.yaml'
